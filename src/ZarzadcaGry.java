@@ -33,6 +33,7 @@ public class ZarzadcaGry {
         tasmociag.add(new Smiec("Folia babelkowa", "Plastik", false, false));
         tasmociag.add(new Smiec("Szklana butelka po soku", "Szkło", false, false));
         tasmociag.add(new Smiec("Opakowanie po jajkach", "Papier", false, false));
+        tasmociag.add(new Smiec("Kapsulki po kawie","Zmieszane",true,false));
     }
 
     public void sortowanieSmieci(int numerKosza){
