@@ -10,11 +10,16 @@ public class Kosz {
 
     public void wrzucSmiec(Smiec smiec){
         this.poziomZapelnienia += 10.0; // jak do kosza jest wrzucany smiec to zapelenienie wzrasta o 10
+
+        if(smiec.czyZlozony){
+            this.poziomCzystosci-=30.0;
+        }else{
         if (smiec.czyBrudny){
             this.poziomCzystosci -= 15.0;  // jak smiec jest brudny to poziom czystosci spada o 15
         }
         if(!smiec.docelowyKosz.equals(this.rodzaj)){
             this.poziomCzystosci-=25.0; // zle posortowany smiec powoduje spadek czystosci o 25
+        }
         }
     }
 }

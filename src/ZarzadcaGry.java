@@ -20,11 +20,14 @@ public class ZarzadcaGry {
 
     public void listaSmieci(){
 
+        Smiec sloik = new Smiec("Szklany sloik", "Szkło", false, false);
+        Smiec nakretka = new Smiec("Metalowa zakretka", "Plastik", false, false);
+        tasmociag.add(new Smiec("Sloik z zakretka", sloik, nakretka));
         tasmociag.add(new Smiec("Karton po mleku","Plastik",true,false));
         tasmociag.add(new Smiec("Zatluszczony papier", "Zmieszane",true,false));
         tasmociag.add(new Smiec("Paragon","Zmieszane",false,false));
         tasmociag.add(new Smiec("Talerz ceramiczny", "Zmieszane", false, false));
-        tasmociag.add(new Smiec("Karton po soku", "Plastik", true, true));
+        tasmociag.add(new Smiec("Karton po soku", "Plastik", true, false));
         tasmociag.add(new Smiec("Puszka po konserwie", "Plastik", true, false));
         tasmociag.add(new Smiec("Zatluszczony karton po pizzie", "Zmieszane", true, false));
         tasmociag.add(new Smiec("Lustro", "Zmieszane", false, false));
@@ -42,6 +45,16 @@ public class ZarzadcaGry {
         tasmociag.remove(0);
         if (tasmociag.isEmpty()){
             return; //koniec jezeli nie ma nic na tasmie
+        }
+    }
+
+    public void rozdzielAktualnySmiec(){
+        if(tasmociag.isEmpty()) return;
+        Smiec aktualny = tasmociag.get(0);
+        if (aktualny.czyZlozony && aktualny.czesc1 != null && aktualny.czesc2 !=null){
+            tasmociag.remove(0);
+            tasmociag.add(0,aktualny.czesc2);
+            tasmociag.add(0,aktualny.czesc1);
         }
     }
 }
